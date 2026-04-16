@@ -54,7 +54,7 @@ jobs:
       - name: Install dependencies
         if: steps.should_run.outputs.run == 'true'
         run: |
-          cd CircuitBloom/${{ matrix.category.name }}
+          cd ${{ matrix.category.name }}
           pip install --upgrade pip
           pip install -r requirements.txt
       
@@ -72,7 +72,7 @@ jobs:
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
           MAX_CONCURRENT_SUBCATEGORIES: 3
         run: |
-          cd CircuitBloom/${{ matrix.category.name }}
+          cd ${{ matrix.category.name }}
           python scraper.py
       
       - name: Upload artifacts (backup)
@@ -81,11 +81,11 @@ jobs:
         with:
           name: ${{ matrix.category.name }}-results
           path: |
-            CircuitBloom/${{ matrix.category.name }}/data/*.xlsx
-            CircuitBloom/${{ matrix.category.name }}/data/images/*.jpg
-            CircuitBloom/${{ matrix.category.name }}/data/images/*.png
-            CircuitBloom/${{ matrix.category.name }}/data/images/*.gif
-            CircuitBloom/${{ matrix.category.name }}/data/images/*.webp
+            ${{ matrix.category.name }}/data/*.xlsx
+            ${{ matrix.category.name }}/data/images/*.jpg
+            ${{ matrix.category.name }}/data/images/*.png
+            ${{ matrix.category.name }}/data/images/*.gif
+            ${{ matrix.category.name }}/data/images/*.webp
           retention-days: 7
       
       - name: Notify on failure
