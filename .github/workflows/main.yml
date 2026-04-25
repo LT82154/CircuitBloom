@@ -15,6 +15,7 @@ on:
         options:
           - all
           - only_on_sheeel
+          - tools_car_accessories
 
 jobs:
   scrape:
@@ -26,6 +27,8 @@ jobs:
         category:
           - name: only_on_sheeel
             display_name: Only On Sheeel
+          - name: tools_car_accessories
+            display_name: Tools & Car Accessories
     
     name: Scrape ${{ matrix.category.display_name }}
     
