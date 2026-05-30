@@ -15,6 +15,7 @@ on:
         options:
           - all
           - only_on_sheeel
+          - eid_offers
           - tools_car_accessories
 
 jobs:
@@ -27,6 +28,8 @@ jobs:
         category:
           - name: only_on_sheeel
             display_name: Only On Sheeel
+          - name: eid_offers
+            display_name: Eid Offers
           - name: tools_car_accessories
             display_name: Tools & Car Accessories
 
